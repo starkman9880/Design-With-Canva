@@ -1,0 +1,1564 @@
+X-Google-Smtp-Source: ACHHUZ6B7Tf+3NEObVmN9c4MyMN7NJpmnZ5ra6RkKtMgqwonXl5Z9xYsNoikWXaDSFPT5ybjXnqS
+X-Received: by 2002:a17:902:f549:b0:1a9:9a18:3458 with SMTP id h9-20020a170902f54900b001a99a183458mr4975821plf.31.1682529225554;
+        Wed, 26 Apr 2023 10:13:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1682529225; cv=none;
+        d=google.com; s=arc-20160816;
+        b=voWqCmIYTa03k2eGCE8NTV1S9rZ29vT4Vi5Y/2z3Rg6Fk1/FQGAnlwAQ5Lwj+1u7MH
+         b4hf9XPi1vUluvZxUaBcsvaJJOlprULNZj3O3qZaGT829C3Q/doKfvcHmsQWzjBWRGxq
+         nkdZra8vm/kMUE61jzKdC+eBLbNAHIBPR07ZX7DX5doMnKhzzu3J2V4RVNVpBjxCHz+W
+         X5JWdxXByVBWFXzFRfZ5k3Sc6zp2jzWm8veTX9tIXeSv8e85DkfxSmJwboa7wq3LHXi/
+         5StpQ33SSn2cNbP9gM99H8p9iJbNQj8aDYadR0ISMn/OdyLpXZgGRJDPTFU1T4rn47v2
+         H4hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:list-unsubscribe:reply-to:subject:message-id:mime-version:from
+         :date:dkim-signature:dkim-signature;
+        bh=NnktLhshaO0iZt3MU2eJpAViP+GFQsU55YyaGRVWaoY=;
+        b=Kfc7ITl4S0MRW0ohh4WwPvTATW38ZZIyZDJLBZrqvSP7W4hIyfXBAGnuA3kPKpKoZf
+         CfEcwFLBAD9YM+yb0qsaoKVu9+ix3s4H92OVgpbR9rxKzht5A3CA35q2LG4B1i2UEZWc
+         vIEw1K62edHSmM1H4R3l361m9z2/pCIROJpdFu80G14RvVRPkG+Mnvk8eeqr9NSz9zED
+         Nn1Ntj+ArghJLDiwaBJMJl7A4F2s5DQRpvfVCmPIfV4abse+zIviHEjhsFxiRHrYiPB/
+         zXZFd5tNBEuJpFZtx6HdqvoEdm7lnGPaViRkPKnd9blUTF0ZDG2NBtoiTAwxkT/UjM2+
+         L5XQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@engage.canva.com header.s=s1 header.b=lIrs3FPs;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=lvpaS1iZ;
+       spf=pass (google.com: domain of bounces+6055632-360b-starky374=gmail.com@e.engage.canva.com designates 167.89.0.221 as permitted sender) smtp.mailfrom="bounces+6055632-360b-starky374=gmail.com@e.engage.canva.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=engage.canva.com
+Return-Path: <bounces+6055632-360b-starky374=gmail.com@e.engage.canva.com>
+Received: from o682.engage.canva.com (o682.engage.canva.com. [167.89.0.221])
+        by mx.google.com with ESMTPS id q6-20020a17090aa00600b00246f8b06125si18891823pjp.108.2023.04.26.10.13.45
+        for <starky374@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Apr 2023 10:13:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+6055632-360b-starky374=gmail.com@e.engage.canva.com designates 167.89.0.221 as permitted sender) client-ip=167.89.0.221;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@engage.canva.com header.s=s1 header.b=lIrs3FPs;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=lvpaS1iZ;
+       spf=pass (google.com: domain of bounces+6055632-360b-starky374=gmail.com@e.engage.canva.com designates 167.89.0.221 as permitted sender) smtp.mailfrom="bounces+6055632-360b-starky374=gmail.com@e.engage.canva.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=engage.canva.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=engage.canva.com; h=content-type:from:mime-version:subject:reply-to:list-unsubscribe: x-feedback-id:to:cc:content-type:from:subject:to; s=s1; bh=NnktLhshaO0iZt3MU2eJpAViP+GFQsU55YyaGRVWaoY=; b=lIrs3FPsfU26J3b3GoM/rmfHzHCFwxp+yl4+ET1aqQuF6hqi46IGMy6+PmY32C9R+2tT 5oQmQ84sv/iUnKEMzqnlWh1bPatTE339MIg2wnNK79pkGgtJR/BquxFiMIqLKOBFScKSF6 CURf59IVC6BDgiWFKjf4mUff6lv64wyvXoTMbN9G/FMJ+Sa/8B2+YrwlJWNhiJMSVdjSSj rGBQd5NaThdM207E6zxolE8Zb+6hWJofzYdwGBI/1kYtZEgNXSIOZXvK6llwSrprefw8zh JTcYJlw4nufLnRWFn5n2botB5UfTuZWhbumynIRzHILWTovRSOExmhNrWrg6LNqA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info; h=content-type:from:mime-version:subject:reply-to:list-unsubscribe: x-feedback-id:to:cc:content-type:from:subject:to; s=smtpapi; bh=NnktLhshaO0iZt3MU2eJpAViP+GFQsU55YyaGRVWaoY=; b=lvpaS1iZM1qyMouMsDcZzlIVMNGk9aiqUxtLrFKs/LSklclWBa9+/X5WidC2xIZXMJ6h qrAwIBs6e94fqduDPBE9oV/Dub78ywz91xutmc2Qb6TLK/GqkZUvcReiZXcDLCwxf7bW6+ 88TOa4NE7ViWN5jtljjTiAUFyIRfvUJGk=
+Received: by filterdrecv-78d47bc944-p7l5z with SMTP id filterdrecv-78d47bc944-p7l5z-1-64495A10-A6
+        2023-04-26 17:06:24.913136807 +0000 UTC m=+5506443.373171420
+Received: from NjA1NTYzMg (unknown) by geopod-ismtpd-2 (SG) with HTTP id KkSS17djRUqt2sF23PKZoA Wed, 26 Apr 2023 17:06:24.760 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=fd4e540ffa96559f7045d7c7c655517035d63f5d4f6e53232a15e0a4e53b
+Date: Wed, 26 Apr 2023 17:06:24 +0000 (UTC)
+From: Canva <start@engage.canva.com>
+Mime-Version: 1.0
+Message-ID: <KkSS17djRUqt2sF23PKZoA@geopod-ismtpd-2>
+Subject: Now that you’re comfortable
+Reply-To: no-reply@canva.com
+List-Unsubscribe: <mailto:4_maxbnw601xvnhcn1l4dnrjiq55hn2r856wk48z5azlk2ou3wim6aiw@unsubscribe.emailinboundprocessing.com?subject=Unsubscribe&body=DO_NOT_DELETE-1kqw9j5w976qp6aaxutqltq666g9tfgjh0gxte66hossnw52d9bqksno4xs26youn4mp6mgisxkqydz5hmy5-DO_NOT_DELETE>
+X-Feedback-ID: 6055632:SG
+X-SG-EID: Ra7eu5rToi4vrVLQS2RlSmpwi7crWZ80bKfp7i2ZXd6GnpdPN8KZE1mm4xWEnruT9r9a/MOxHlkfm+ktpehtWdEgOs+hsNwC/PSRw+CDdYENetIlM16Vtj3Rj1nLfRmgIJIrRLk4bXZW0nwg1/fIuUDZJMK5/1qwEbGLmY6vXXokgwz5Sk+PnDwYkbuKMh+V9OPG8j4YXLenfkY7NEdpe2jm+VlKH4UMRQmcnJ52ELcJbq76P1qgchNnJcNxC7D+
+X-SG-ID: N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi/KvUYPFb2vwyNNeBc9bJiChAZS8lFD3NLCXWURGpWPad4krGOj+8wkmN6wzhd2TW43tcQOq2ud6WlmfCIGcgOMgqA1LYSm8kyjDbqnEu/4+SQQvi2/JwiCSxfehHsYsaBmxq8g9sRARsGArl4lE/YhSU3VhNbWc8RfDew0XxFBuswJoiNl421cw/b4aqwka0Z9qcqjE2tHriq2gXb25l1ZIVEOeIsy6RxKREBcw7bcAhEaXiZ5Th8fv5LHaydQ/LR9NWpjJZUBJe4j47BLFxtv3q2cZnuv4bGa/oQT9qd1fZTqHA03DAjafLo3ZfMskI3OTlBT2yeRRgXlTI+BOITCP80w2pAIOjPhaInzSOZTKT9SGLPAhudcNBfmxyAjbJ4wV1xICXiy18JztArXuSwWuohq7ehHZz94Q0jk8T2GDLe15+1ZBH7w/sD/1KoCCMYHu47L6zrQUs5KXArabowd0WHzZBxslJs7F1fwzccLxVFHIgn4k0MXKZqC/df6RwGy22Aw3h9Hgk1pGYQJPfH9J
+To: starky374@gmail.com
+X-Entity-ID: Ihjwe6fbPmb2n1jboNJwDQ==
+
+--fd4e540ffa96559f7045d7c7c655517035d63f5d4f6e53232a15e0a4e53b
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+ =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+Canva
+( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumldhWXdjEiY6blaOIqf4-e=
+X4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t0/V_MslbwQe_ZhD5OXhdkgMNlA4ZnM9Ut6a6uJFOx3ck=
+4 )
+    ( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumldhWXdjEiY6blaOIq=
+f4-eX4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t1/PqyxZQ_ja9bZOzJZW8IeEn3rdXdD2WzUAoEaSF=
+iXCOo )
+
+---------------------------------
+
+---------------------------------
+
+
+
+
+
+=20
+( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlc85aUQxITzuynHJcgDmk=
+PCo0LWucLT7zaARowcxvy8PHvUSR9ni7QkTClmVPBehDQ/3vo/gfSqx0SASZCNbdPv3p-Pzw/t2=
+/Cv9bfK5NMUzymWbaz2_abkKNqlAUbnYJjNRZ80MSIxE )
+
+
+( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlc85aUQxITzuynHJcgDmk=
+PCo0LWucLT7zaARowcxvy8PHvUSR9ni7QkTClmVPBehDQ/3vo/gfSqx0SASZCNbdPv3p-Pzw/t3=
+/vLQYm5c4_EkHRKAR4znZivhIuG5lWooef53i9CtyHhI )
+
+
+
+bullet =20
+
+bullet =20
+
+bullet =20
+
+
+
+=20
+( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlc85aUQxITzuynHJcgDmk=
+PCo0LWucLT7zaARowcxvy8PHvUSR9ni7QkTClmVPBehDQ/3vo/gfSqx0SASZCNbdPv3p-Pzw/t4=
+/68FZx8KztqOJPt2JiBYN_1mPxc0YAWGOwhB_FvFzrWY )
+
+
+
+ ( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumldhWXdjEiY6blaOIqf4-=
+eX4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t5/L0KKYWxMol_2NdjT_Z1P3W-6Oyn5V4LOxAilRZqZ-=
+0M )
+ ( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumldhWXdjEiY6blaOIqf4-=
+eX4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t6/kvwKgHQ1AKDwPNRaxhGH1xebjkG6q_yBI-09jrt3t=
+4U )
+ ( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumldhWXdjEiY6blaOIqf4-=
+eX4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t7/hMVd_GwVJZUy9FGZz0Scqln1k_jvwZBNSc0sLz-6o=
+IA )
+ ( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumldhWXdjEiY6blaOIqf4-=
+eX4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t8/ZaBhRqrSdIIyh5yrVs4_DlkcDgU7TSsHTgj8URY3T=
+Ko )
+ ( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumldhWXdjEiY6blaOIqf4-=
+eX4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t9/CJtAAOd07p6aaWAHb8Qnv2dO00u6Xk3oHEudhitzs=
+zA )
+       app store=20
+( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumldhWXdjEiY6blaOIqf4-e=
+X4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t10/VG-T6BB8BsMytHEQkv7MIVtngBqgBPDCoRNlXYcN3=
+-4 )    google play ( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56quml=
+dhWXdjEiY6blaOIqf4-eX4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t11/pdfxl1rdyiji-IoBg3fBT=
+wbCEwWicejM1kfsnsqQDY0 )
+
+
+
+
+Canva Pty Ltd, 110 Kippax St, NSW 2010, Australia. ABN 80 159
+929 938
+
+ ( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumldhWXdjEiY6blaOIqf4-=
+eX4/3vo/gfSqx0SASZCNbdPv3p-Pzw/t12/xnZGWr6kcFy-CRgbETPseTxHs67G3cL2dHx1rLUc=
+PAc )
+ (
+https://l.engage.canva.com/ss/c/8aSaGI_6ZV4EiNXMMxdeJepGDl9EzYeXYxG80-pEH-T=
+xkm-I8v-LL8CTWohFqPCTvdmNxy1w46Dggl0WSJEJfR8nZL2r08dTJ12aGVG4UAlYMIaGCZFP8v=
+Zz876fqNxnD4OPPwZkHyt60NwFB445S9lI8Ibv8zchjEc9-S-T-Gn9EjJa8BoPNMOEbFyga3l8O=
+2vhSk0tszmXBg17UoYhQvw2iCM2wzXWvufcLhqGqQ5soPtOQcVVT8z29CQZuGbFaIv7mi8YOCmc=
+ld9IEL_E0WcFiehzgUL1Shu2UyVJXTGa-hjyb78egI3zSLramgTrptdYklK7m8JaZIoPAeBjF66=
+1tRk1Hh_2qUE8Ouv5OGYZ54tKSlW58UH3hFlgHSVL8FRCgpXG1Xe2DsHOmxpZ59I4l6E0dAzx-N=
+um8keKZL1-OlI6gPHx9K9890k6khUIHMwhsOLWREyRx9VttUkYgpvq6rt_NC3pTB9clfkWWzPL2=
+6Yr2JNa9quxp0mp28jcNP8Dos1SA5U65c4CTxiIzQF7EwOu_XI68TGNtyoNGWZI30kmDBo6Y0AO=
+yL8cYo7lWURC0XSrp9Oj3ZdZzVdOnLb2T6soU9VBbBTrBiuNUwItP9qOKnHXNPAdRWaohlb4Hgd=
+KXnm1Kswp8Oi42IfdgFoISNv4gwTkafuDILG4QOnYHpNIlfVj4K6FcHdQTEgq/3vo/gfSqx0SAS=
+ZCNbdPv3p-Pzw/t13/g1mhXIPghRmpjLSLou1kHsp0D-sIWuMjHZ5Ersh6UXA )
+=20
+( https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlY206EG1CUU-641gbt8bT=
+pvIlZK6z73yMq8t0OK0ssTpawIVRIkYIxGII7PcrwC8hA/3vo/gfSqx0SASZCNbdPv3p-Pzw/t1=
+4/KowXXv8vN6_ft-UWzCA9MoA558h2O4F2qnGQTmxkPpM )
+  (
+ )     twitter  (
+ )
+  (
+ )     instagram  (
+ )
+--fd4e540ffa96559f7045d7c7c655517035d63f5d4f6e53232a15e0a4e53b
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:sch=
+emas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office"=
+ dir=3D"ltr" >
+    <!--
+
+
+   =20
+   =20
+
+       =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+   =20
+      -->
+        <head>
+            <title>Now that you=E2=80=99re comfortable</title>
+            <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+            <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8">
+            <meta name=3D"viewport" content=3D"width=3Ddevice-width, initia=
+l-scale=3D1">
+            <style type=3D"text/css">
+                #outlook a{padding: 0;}
+                .ReadMsgBody{width: 100%;}
+                .ExternalClass{width: 100%;}
+                .ExternalClass *{line-height: 100%;}
+                body{margin: 0; padding: 0; -webkit-text-size-adjust: 100%;=
+ -ms-text-size-adjust: 100%;}
+                table, td{border-collapse: collapse; mso-table-lspace: 0pt;=
+ mso-table-rspace: 0pt;}
+                img{border: 0; height: auto; line-height: 100%; outline: no=
+ne; text-decoration: none; -ms-interpolation-mode: bicubic;}
+                p{display: block; margin: 13px 0;}
+            </style>
+            <!--[if mso]>
+            <xml>
+                <o:OfficeDocumentSettings>
+                    <o:AllowPNG/>
+                    <o:PixelsPerInch>96</o:PixelsPerInch>
+                </o:OfficeDocumentSettings>
+            </xml>
+            <![endif]-->
+            <!--[if lte mso 11]>
+            <style type=3D"text/css">
+                .outlook-group-fix{width:100% !important;}
+            </style>
+            <![endif]-->
+            <style type=3D"text/css">
+    @media only screen and (max-width:480px) {
+
+                  table.full-width-mobile { width: 100% !important; }
+                    td.full-width-mobile { width: auto !important; }
+
+    }
+    @media only screen and (min-width:480px) {
+    .dys-column-per-100 {
+            width: 100.000000% !important;
+            max-width: 100.000000%;
+        }
+    }
+    u + #body a {color: #0E1318;text-decoration: underline;font-size: inher=
+it; font-family: inherit; font-weight: inherit; line-height: inherit; }
+     a {color: #0E1318;text-decoration: underline;}
+        /* Buttery smooth fonts */ html { font-size: 100%; -webkit-text-siz=
+e-adjust:
+        100%; font-variant-ligatures: none; -webkit-font-variant-ligatures:=
+ none;
+        text-rendering: optimizeLegibility; -moz-osx-font-smoothing: graysc=
+ale;
+        font-smoothing: antialiased; -webkit-font-smoothing: antialiased;
+        text-shadow: rgba(0, 0, 0, .01) 0 0 1px; }
+
+        .button { background:#00C4CC !important; border-radius:4px; color:#=
+ffffff !important; display:inline-block;
+        font-family:Open Sans, Helvetica, Arial, sans serif; font-size:14px=
+;
+        font-weight:600;line-height:160%;margin:0;padding:9px 16px; }
+        .show-for-mobile table { mso-hide: all }
+        .monoGreyLight { color: #edf0f2; } .monoBlack { color: #0e1318; }
+        .colorCanvaBrand { color: #00c4cc; } .monoBlackA100 { color: #565a5=
+d; }
+        .monoBlackA150 { color: #6e7174; } .monoBlackA200 { color: #939597;=
+ }
+        .monoBlackA400 { color: #E8E9E9 } .monoBlackA500 { color: #eeeeef; =
+}
+        .monoWhite { color: #fff; } .monoGrey { color: #293039; } .show-for=
+-large {
+        display: block } .hide-for-large { display: none } .wrapper {
+        background-color: #edf0f2; } .wrapper-padding { padding: 0 48px }
+        .wrapper-margin { width: 48px } .wrapper-typography { padding: 12px=
+ 48px }
+        .header-bottom { height: 36px }
+        .card-image { width: 38.8% } .card-content { width: 61.2% }
+        .grid-cta { background: #F8F9F9; border-radius: 4px; border:
+        1px solid #E8E9E9} .word-break, word-break > div { word-break: brea=
+k-all }
+        .device-image-container table { margin: auto } .grid-cta-button { b=
+order:
+        1px solid #EDF0F2; border-radius: 4px }
+
+        .desktop_hide,
+.desktop_hide table {
+  mso-hide: all;
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+}
+
+        @media only screen and (max-width:480px) { .width-50-mobile { width=
+: 50% !important } .wrapper-margin-mobile {
+        width: 24px !important} .top-10-copy-padding {
+        padding-left: 16px
+        !important; padding-right: 16px
+        !important; } .top-10-copy-margin { height: 16px !important;
+        line-height: 16px
+        !important }
+        .card-horizontal .card-image { width: 30% }
+        .card-horizontal .card-content { width: 70% }
+        .card-contained .card-image { display: table-footer-group !importan=
+t; width: 100% !important}
+        .card-contained .card-content { display: table-caption; width: 100%
+        !important }
+        .card-template-stacked .card-image { width: calc(100% - 32px)
+        !important; display: table-caption !important; }
+        .card-template-stacked .card-content { display: table-footer-group =
+!important; width: 100%
+        !important; }
+        .card-template-stacked .gutter { display: none !important; }
+        .card-template-stacked .card-content > p { margin-top: 16px !import=
+ant; }
+        .card-horizontal-stacked, .card-horizontal-stacked-reversed { displ=
+ay: inline-block !important; width: 100%
+        !important } .card-horizontal-stacked .card-content { display: inli=
+ne-block
+        !important; width: 100% !important; } .card-horizontal-stacked .car=
+d-image {
+        display: inline-block !important; width: 100% !important; }
+        .card-horizontal-stacked .gutter { display: inline-block; width: 10=
+0%
+        !important; height: 16px !important }
+        .card-horizontal-stacked-reversed .card-content { display: table-ca=
+ption
+        !important; width: 300px !important; }
+        .card-horizontal-stacked-reversed .card-image {
+        display: table-footer-group !important; width: 300px !important; }
+        .card-horizontal-stacked-reversed .gutter {
+        display: table-header-group !important; width: 300px !important;
+        }
+        .hide-for-mobile { display: none !important }
+        .show-for-mobile { display: block !important; max-height: none !imp=
+ortant; }
+          .font-smaller div {
+            font-size: 36px !important;
+          line-height: 38px !important;
+          }
+          .font-smaller-2 div {
+            font-size: 30px !important;
+          line-height: 31px !important;
+          }
+          .card-horizontal-stacked-reversed-alt {
+            display: block !important;
+            width: 100% !important;
+          }
+          .card-horizontal-stacked-reversed-alt tbody,
+          .card-horizontal-stacked-reversed-alt tbody tr {                 =
+width:100% !important;
+            display:table !important;
+          }
+          .card-horizontal-stacked-reversed-alt .card-content {
+            display: table-caption !important;
+            width: 100% !important;
+          }
+          .card-horizontal-stacked-reversed-alt .card-image {
+            display: table-footer-group !important;
+            width: 100% !important;
+          }
+          .card-horizontal-stacked-reversed-alt .gutter {
+            display: table-header-group !important;
+            width: 100% !important;
+          }
+        }
+
+        @media only screen and (max-width:480px) {=20
+  .mobile_hide {
+    display: none !important;
+  }
+  .mobile_hide {
+    min-height: 0 !important;
+    max-height: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    font-size: 0 !important;
+  }
+  .desktop_hide,
+  .desktop_hide table {
+    display: table !important;
+    max-height: none !important;
+  }
+ =20
+  .column-stack {
+    display: block !important;
+    width: 100% !important;
+  }
+  .column-stack tbody,
+  .column-stack tbody tr {
+    width: 100% !important;
+    display: table !important;
+  }
+  .column-stack .column-lhs {
+    display: table-caption !important;
+    width: 100% !important;
+  }
+  .column-stack .column-rhs {
+    display: table-footer-group !important;
+    width: 100% !important;
+  }
+  .column-stack .column-gutter {
+    display: table-header-group !important;
+    width: 100% !important;
+  }
+ =20
+  .va-top {
+    vertical-align: top !important;
+  }
+  .rounded-none {
+      border-radius: 0 !important;=20
+  }
+  .pt-5 {
+    padding-top: 5px !important;
+  }
+  .pb-16 {
+    padding-bottom: 16px !important;
+  }
+  .w-16 {
+      width: 16px !important=20
+  }
+  .h-16 {
+    height: 16px !important;
+    line-height: 16px !important;
+  }
+  .h-20 {
+    height: 20px !important;
+    line-height: 20px !important;
+  }
+  .h-24 {
+    height: 24px !important;
+    line-height: 24px !important;
+  }
+  .w-full {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .font-26, .font-26 div, .font-26 span {
+    font-size: 26px !important;=20
+  }
+}
+
+        @media only screen and (max-width:648px) { body { background-color:=
+ #ffffff !important } body > div {
+        background-color: #ffffff !important } .wrapper { background-color:=
+ #ffffff !important }
+        .footer-bg-mobile { background-color: #ffffff !important }
+        .header-top-padding { border-radius: 0 !important } .header-top-pad=
+ding td {
+        height: 24px !important; line-height: 24px } .show-for-large { disp=
+lay: none
+        !important } .hide-for-large { display: block !important } .wrapper=
+-padding
+        { padding: 0 24px !important } .wrapper-margin { width: 24px !impor=
+tant }
+        .header-bottom { height: 12px; line-height: 12px } .wrapper-typogra=
+phy {
+        padding: 12px 24px !important } .border-radius-for-large,
+        .border-radius-for-large img { border-radius: 0 !important }
+        .spacing-for-large { height: 1px !important; line-height: 0 !import=
+ant }
+        .image_grid .col { width: 47% } .full-image-block-spacing { height:=
+ 24px
+        !important} .card-horizontal-image > table > tbody > tr > td { padd=
+ing: 0px
+        24px 12px 24px !important } .card-horizontal-content > table > tbod=
+y > tr >
+        td { padding: 12px 24px 0 24px !important } .header-left { display:=
+ table-footer-group !important; width: 320px
+        !important } .header-right { width: 320px !important; display: tabl=
+e-caption !important } .header-right th {
+        text-align: left
+        !important; } .card-left { padding: 0
+        12px 0 24px !important } .card-right { padding: 0 24px 0 12px !impo=
+rtant }
+        }
+
+      </style>
+            <!--[if !mso]><!--><link href=3D"https://fonts.googleapis.com/c=
+ss?family=3DOpen+Sans:400,600,700" rel=3D"stylesheet" type=3D"text/css"><st=
+yle type=3D"text/css">@import url(https://fonts.googleapis.com/css?family=
+=3DOpen+Sans:400,600,700);</style><!--<![endif]-->
+        </head>
+        <body id=3D"body" style=3D"background-color: #EDF0F2;"><span style=
+=3D"width:0;opacity:0;max-height:0;mso-hide:all;overflow:hidden;float:left;=
+display:none !important;">Get Canva Pro free for 14 days</span><span style=
+=3D"display: none; max-height: 0px; overflow: hidden;">&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp=
+;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C</span><div style=3D=
+"background-color: #EDF0F2;">
+
+          <!--
+
+
+
+-->
+<!--[if mso | IE]>
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"wrapper-outlook" style=3D"width:600px;" width=3D"600"><tr><td style=
+=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+<![endif]-->
+<div class=3D"wrapper" style=3D"background: #edf0f2; background-color: #edf=
+0f2; margin: 0px auto; max-width: 600px">
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"background: #edf0f2; background-color: #edf0=
+f2; width: 100%">
+    <tbody>
+      <tr>
+        <td style=3D"direction: ltr; font-size: 0px; padding: 0; text-align=
+: center; vertical-align: top">
+          <!--[if mso | IE]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0"><tr><td style=3D"vertical-align:top;width:600px;">
+<![endif]-->
+          <div class=3D"dys-column-per-100 outlook-group-fix" style=3D"dire=
+ction: ltr; display: inline-block; font-size: 13px; text-align: left; verti=
+cal-align: top; width: 100%">
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" width=3D"100%">
+              <tbody>
+                <tr>
+                  <td style=3D"padding: 0; vertical-align: top">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"" width=3D"100%">
+                      <tr>
+                        <td align=3D"left" style=3D"font-size: 0px; padding=
+: 0; word-break: break-word">
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"color: #000000; font-family: Helvetica, Arial, sans-serif; =
+font-size: 13px; line-height: 22px; table-layout: auto; width: 100%" width=
+=3D"100%">
+                            <tr>
+                              <td>
+                                <table cellpadding=3D"0" cellspacing=3D"0" =
+class=3D"mobile_hide">
+                                  <tr>
+                                    <td height=3D"16" style=3D"height: 16px=
+; line-height: 16px">&nbsp;</td>
+                                  </tr>
+                                </table>
+                                <table bg=3D"#ffffff" cellpadding=3D"0" cel=
+lspacing=3D"0" class=3D"rounded-none" style=3D"border-radius: 8px 8px 0 0; =
+background: #ffffff; width: 100%">
+                                  <tr>
+                                    <td class=3D"h-24" height=3D"52" style=
+=3D"height: 52px">&nbsp;</td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]>
+       </td></tr></table>
+       <![endif]-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--[if mso | IE]>
+       </td></tr></table>
+       <![endif]-->
+<!--[if mso | IE]>
+       <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0p=
+x;font-size:0px;mso-line-height-rule:exactly;">
+       <![endif]-->
+<div style=3D"background: #ffffff; background-color: #ffffff; margin: 0px a=
+uto; max-width: 600px">
+  <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"background: #ffffff; background-color: #ffff=
+ff; width: 100%">
+    <tbody>
+      <tr>
+        <td style=3D"direction: ltr; font-size: 0px; padding: 0; text-align=
+: center; vertical-align: top">
+          <!--[if mso | IE]>
+       <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+       <![endif]-->
+          <div class=3D"dys-column-per-100 outlook-group-fix" style=3D"dire=
+ction: ltr; display: inline-block; font-size: 13px; text-align: left; verti=
+cal-align: top; width: 100%">
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" width=3D"100%">
+              <tbody>
+                <tr>
+                  <td style=3D"padding: 0; vertical-align: top">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"" width=3D"100%">
+                      <tr>
+                        <td align=3D"left" style=3D"font-size: 0px; padding=
+: 0; word-break: break-word">
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"color: #000000; font-family: Helvetica, Arial, sans-serif; =
+font-size: 13px; line-height: 22px; table-layout: auto; width: 100%" width=
+=3D"100%">
+                            <tr>
+                              <td class=3D"wrapper-margin" width=3D"48">&nb=
+sp;</td>
+                              <td>
+                                <table cellpadding=3D"0" cellspacing=3D"0" =
+padding=3D"0" style=3D"width: 100%" width=3D"100%" dir=3D"ltr" >
+                                  <tr>
+                                    <td align=3D"left" style=3D"vertical-al=
+ign: middle; width: 80px" width=3D"80">
+                                      <a href=3D"https://l.engage.canva.com=
+/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b-EtCZIlInmZSBn0wmQQjugutk0KKNp21266W0g=
+VJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTdy92n93ANFWYRVVE5TkMjmGKzXXF9CE3KVBThH9=
+_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4q2YezD_9ir3ig28OKvj2pHKGRTJOcnnGrTUi4H=
+dEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv3p-Pzw/h15/9GrK9ReCvrFrjmO9TsSfa0pwfL0=
+AMFzPV045gAnJiOc" style=3D"color: #0e1318; text-decoration: none" target=3D=
+"_blank"><span style=3D"color: #0e1318; text-decoration: none">
+                                          <img alt=3D"Canva" height=3D"auto=
+" src=3D"https://braze-images.com/appboy/communication/assets/image_assets/=
+images/63a101405133236aa0b76b77/original.png?1671496000" style=3D"border: n=
+one; display: block; font-size: 13px; outline: none; text-decoration: none;=
+ width: 100%; height: auto" width=3D"80"> </span></a>
+                                    </td>
+                                    <td style=3D"width: 16px" width=3D"16px=
+">&nbsp;</td>
+                                    <td align=3D"right;" class=3D"va-top" s=
+tyle=3D"vertical-align: middle; text-align: right;">
+                                      <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse: separate=
+; line-height: 100%; margin: 0;margin-left: auto;" width=3D"auto">
+                                        <tbody>
+                                          <tr>
+                                            <td align=3D"center" bgcolor=3D=
+"#F2F3F5" role=3D"presentation" style=3D"background: #f2f3f5; border-radius=
+: 4px; cursor: auto; mso-padding-alt: 0px; text-decoration: none;" valign=
+=3D"middle">
+                                              <a href=3D"https://l.engage.c=
+anva.com/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b-EtCZIlInmZSBn0wmQQjugutk0KKNp=
+21266W0gVJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTdy92n93ANFWYRVVE5TkMjmGKzXXF9CE=
+3KVBThH9_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4q2YezD_9ir3ig28OKvj2pHKGRTJOcn=
+nGrTUi4HdEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv3p-Pzw/h16/5w5lZeULHV_qQ1jBCV9=
+KLeYefdRBmHI06G3cswzC6xY" rel=3D"noopener" style=3D"
+                                                  background: #f2f3f5;
+                                                  border-radius: 4px;
+                                                  color: #2f3337;
+                                                  display: inline-block;
+                                                  font-family: 'Open Sans',=
+ Arial, sans serif;
+                                                  font-size: 14px;
+                                                  font-weight: 600;
+                                                  line-height: 160%;
+                                                  margin: 0;
+                                                  mso-padding-alt: 0px;
+                                                  padding: 9px 16px;
+                                                  text-decoration: none;
+                                                  text-transform: none;
+                                                  letter-spacing: 0.005em;
+                                                " target=3D"_blank">
+                                                <!--[if mso]>
+                                                  <i style=3D"letter-spacin=
+g: 25px; mso-font-width: -100%; mso-text-raise: 30pt"></i>
+                                                <![endif]-->
+                                                <span style=3D"mso-text-rai=
+se: 15pt;">Design with Canva</span>
+                                                <!--[if mso]>
+                                                  <i style=3D"letter-spacin=
+g: 25px; mso-font-width: -100%"></i>
+                                                <![endif]-->
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <td class=3D"wrapper-margin" width=3D"48">&nb=
+sp;</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align=3D"left" style=3D"font-size: 0px; padding=
+: 0; word-break: break-word">
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"color: #000000; font-family: Helvetica, Arial, sans-serif; =
+font-size: 13px; line-height: 22px; table-layout: auto; width: 100%" width=
+=3D"100%">
+                            <tr>
+                              <td class=3D"h-24" height=3D"44" style=3D"hei=
+ght: 44px">&nbsp;</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--[if mso | IE]>
+       </td></tr></table>
+       <![endif]-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--[if mso | IE]>
+       </td></tr></table>
+       <![endif]-->
+
+      <!--[if mso | IE]>
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;">
+    <![endif]--><div style=3D"background:#FFEBC3;background-color:#FFEBC3;m=
+argin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#F=
+FEBC3;background-color:#FFEBC3;width:100%;"><tbody><tr><td style=3D"directi=
+on:ltr;font-size:0px;padding:0;padding-bottom:24px;padding-top:36px;text-al=
+ign:center;vertical-align:top;"><!--[if mso | IE]>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+    <![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=
+=3D"direction:ltr;display:inline-block;font-size:13px;text-align:left;verti=
+cal-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"paddin=
+g:0;vertical-align:top;"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"" width=3D"100%">
+          <tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"color:#000000;font-family:Helvetica, Arial, sans-serif;font-size:13px;=
+line-height:22px;table-layout:auto;width:100%;" width=3D"100%">
+            <tr>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+              <th>
+                <h2 style=3D"font-family: Open Sans, Helvetica, Arial, sans=
+ serif; font-size: 24px; font-weight: 700; line-height: 130%; color: #0E131=
+8; letter-spacing: -0.3px; margin: 0 0 8px; text-align: center">Don't forge=
+t your free Canva Pro trial</h2>
+                <p style=3D"color: #0E1318; font-family: Open Sans, Helveti=
+ca, Arial, sans serif; font-weight: 400; line-height: 160%; font-size: 14px=
+; margin: 0 0 16px; text-align: center">Now that you're in the groove of de=
+signing with Canva, why not try out Canva Pro? It has all the good things y=
+ou're used to, and a lot more. <br><br>You can try Canva Pro for free and c=
+ancel anytime. We'll remind you when your trial is ending - no unhappy surp=
+rises. When your trial is over, choose to upgrade or continue using Canva f=
+or free. The designs you created with Pro will always be there.</p>
+                  <a href=3D"https://l.engage.canva.com/uni/ss/c/N56jrjxtaj=
+clrFz56qumlc85aUQxITzuynHJcgDmkPCo0LWucLT7zaARowcxvy8PtBjzguMgiMI2wECQ9H1BT=
+le6eSwdu8DZs3HUjLgAJNcOKPzQhnr64qmKBLgYVO1P0EmHHownfIRBG24d-PmLrNkruS5HC5ue=
+ywqrleB3G9nbTnuWz6ukMHUdy70meYiLmqVbiCmhA1Gw8ddf9-c3J16zKpxKdY9X7pfpKSr3sNf=
+Vflwy2h2ShGc3KnzwG4-7NqNmO7Tbiyb2Os-_mOQ5Lg/3vo/gfSqx0SASZCNbdPv3p-Pzw/h17/=
+8UbTSmjWB5EduSx8LeNwR8FCmI1Tkgg02aPXxvhqw_I" universal=3D"true" target=3D"_=
+blank" style=3D"background:#ffffff;border-radius:4px;color:#0E1318;display:=
+inline-block;font-family:Open Sans, Helvetica, Arial, sans serif;font-size:=
+14px;font-weight:600;line-height:160%;margin:0;mso-padding-alt:0px;padding:=
+9px 16px;text-decoration:none;text-transform:none;">Try Canva Pro for free<=
+/a>
+              </th>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+            </tr>
+          </table></td></tr>
+        </table></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+      <!--[if mso | IE]>
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;">
+    <![endif]--><div style=3D"background:#FFEBC3;background-color:#FFEBC3;m=
+argin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#F=
+FEBC3;background-color:#FFEBC3;width:100%;"><tbody><tr><td style=3D"directi=
+on:ltr;font-size:0px;padding:0;padding-top:12px;text-align:center;vertical-=
+align:top;"><!--[if mso | IE]>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+    <![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=
+=3D"direction:ltr;display:inline-block;font-size:13px;text-align:left;verti=
+cal-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"paddin=
+g:0;vertical-align:top;"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"" width=3D"100%">
+          <tr><td align=3D"left" style=3D"font-size:0px;padding:0;padding-b=
+ottom:0;padding-top:0;word-break:break-word;"><div style=3D'color:#0E1318;f=
+ont-family:"Open Sans", Helvetica, Arial, sans-serif;font-size:16px;line-he=
+ight:1.6;text-align:left;'>
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"=
+color:#000000;font-family:Helvetica, Arial, sans-serif;font-size:13px;line-=
+height:22px;table-layout:auto;width:100%;" width=3D"100%">
+            <tr>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+              <th style=3D"line-height: 0">
+                <a href=3D"https://l.engage.canva.com/uni/ss/c/N56jrjxtajcl=
+rFz56qumlc85aUQxITzuynHJcgDmkPCo0LWucLT7zaARowcxvy8PtBjzguMgiMI2wECQ9H1BTle=
+6eSwdu8DZs3HUjLgAJNcOKPzQhnr64qmKBLgYVO1P0EmHHownfIRBG24d-PmLrNkruS5HC5ueyw=
+qrleB3G9nbTnuWz6ukMHUdy70meYiLmqVbiCmhA1Gw8ddf9-c3J16zKpxKdY9X7pfpKSr3sNfVf=
+lwy2h2ShGc3KnzwG4-7NqNmO7Tbiyb2Os-_mOQ5Lg/3vo/gfSqx0SASZCNbdPv3p-Pzw/h18/bC=
+TtIHu8RpVK4MXDJ5EEQwq8vNPnA88KCSJO6uFJ710" universal=3D"true" target=3D"_bl=
+ank"><img ratio=3D"504:283" src=3D"https://braze-images.com/appboy/communic=
+ation/assets/image_assets/images/61ad930f0f7b7d04437c3817/original.png?1638=
+765327" style=3D"max-width: 100%"></a>
+              </th>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+            </tr>
+          </table>
+            </div></td></tr>
+        </table></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+
+      <!--[if mso | IE]>
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;">
+    <![endif]--><div style=3D"margin:0px auto;max-width:600px;"><table alig=
+n=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font-s=
+ize:0px;padding:0;text-align:center;vertical-align:top;"><!--[if mso | IE]>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+    <![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=
+=3D"direction:ltr;display:inline-block;font-size:13px;text-align:left;verti=
+cal-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"backgr=
+ound-color:#fff;padding:0;vertical-align:top;"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"" width=3D"100%"=
+>
+          <tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"color:#000000;font-family:Helvetica, Arial, sans-serif;font-size:13px;=
+line-height:22px;table-layout:auto;width:100%;" width=3D"100%">
+            <tr>
+              <th height=3D"8" style=3D"line-height: 0"></th>
+            </tr>
+          </table></td></tr>
+        </table></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+
+      <!--[if mso | IE]>
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;">
+    <![endif]--><div style=3D"background:#fff;background-color:#fff;margin:=
+0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#fff;bac=
+kground-color:#fff;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-=
+size:0px;padding:0;text-align:center;vertical-align:top;"><!--[if mso | IE]=
+>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+    <![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=
+=3D"direction:ltr;display:inline-block;font-size:13px;text-align:left;verti=
+cal-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"backgr=
+ound-color:#fff;padding:0;vertical-align:top;"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"" width=3D"100%"=
+>
+          <tr><td align=3D"left" class=3D"wrapper-typography" style=3D"font=
+-size:0px;padding:10px 25px;padding-bottom:12px;padding-left:48px;padding-r=
+ight:48px;padding-top:12px;word-break:break-word;"><div style=3D"color:#0E1=
+318;font-family:Open Sans, Helvetica, Arial, sans serif;font-size:24px;font=
+-weight:700;letter-spacing:-0.3px;line-height:130%;text-align:left;"><p sty=
+le=3D"margin-top:0;margin-bottom:0">What can you do with Pro?</p></div></td=
+></tr>
+        </table></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+
+      <!--[if mso | IE]>
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;">
+    <![endif]--><div style=3D"background:#ffffff;background-color:#ffffff;m=
+argin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#f=
+fffff;background-color:#ffffff;width:100%;"><tbody><tr><td style=3D"directi=
+on:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top;"><!--[=
+if mso | IE]>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+    <![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=
+=3D"direction:ltr;display:inline-block;font-size:13px;text-align:left;verti=
+cal-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"paddin=
+g:0;padding-bottom:6px;padding-top:6px;vertical-align:top;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D""=
+ width=3D"100%">
+          <tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"color:#000000;font-family:Helvetica, Arial, sans-serif;font-size:13px;=
+line-height:22px;table-layout:auto;width:100%;" width=3D"100%">
+            <tr>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+              <th>
+                <div style=3D'color:#0E1318;font-family:"Open Sans", Helvet=
+ica, Arial, sans-serif;font-size:16px;line-height:1.6;text-align:left;'>
+                  <table cellpadding=3D"0" cellspacing=3D"0">
+                    <tr>
+                      <td style=3D"line-height: 0; padding-top: 6px; paddin=
+g-left: 8px; padding-right: 8px" valign=3D"top">
+                        <img alt=3D"bullet" src=3D"https://appboy-images.co=
+m/appboy/communication/assets/image_assets/images/5fa0bf1f01bc31513b9ece3d/=
+original.png?1604370207">
+                      </td>
+                      <td style=3D"padding: 0 8px;color:#0e1318;font-family=
+:Open Sans, Helvetica, Arial, sans serif;font-size:14px;font-weight:400;lin=
+e-height:160%;text-align:left;text-align:start;"><strong>Nothing is off-lim=
+its:</strong> Access more content, templates, fonts, audio tracks, videos, =
+and graphic elements.</td>
+                    </tr>
+                  </table>
+                </div>
+              </th>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+            </tr>
+          </table></td></tr>
+        </table></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+
+      <!--[if mso | IE]>
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;">
+    <![endif]--><div style=3D"background:#ffffff;background-color:#ffffff;m=
+argin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#f=
+fffff;background-color:#ffffff;width:100%;"><tbody><tr><td style=3D"directi=
+on:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top;"><!--[=
+if mso | IE]>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+    <![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=
+=3D"direction:ltr;display:inline-block;font-size:13px;text-align:left;verti=
+cal-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"paddin=
+g:0;padding-bottom:6px;padding-top:6px;vertical-align:top;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D""=
+ width=3D"100%">
+          <tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"color:#000000;font-family:Helvetica, Arial, sans-serif;font-size:13px;=
+line-height:22px;table-layout:auto;width:100%;" width=3D"100%">
+            <tr>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+              <th>
+                <div style=3D'color:#0E1318;font-family:"Open Sans", Helvet=
+ica, Arial, sans-serif;font-size:16px;line-height:1.6;text-align:left;'>
+                  <table cellpadding=3D"0" cellspacing=3D"0">
+                    <tr>
+                      <td style=3D"line-height: 0; padding-top: 6px; paddin=
+g-left: 8px; padding-right: 8px" valign=3D"top">
+                        <img alt=3D"bullet" src=3D"https://appboy-images.co=
+m/appboy/communication/assets/image_assets/images/5fa0bf1f01bc31513b9ece3d/=
+original.png?1604370207">
+                      </td>
+                      <td style=3D"padding: 0 8px;color:#0e1318;font-family=
+:Open Sans, Helvetica, Arial, sans serif;font-size:14px;font-weight:400;lin=
+e-height:160%;text-align:left;text-align:start;"><strong>Get hours back:</s=
+trong> Remove image backgrounds, resize designs with one click, and schedul=
+e content to your social media.</td>
+                    </tr>
+                  </table>
+                </div>
+              </th>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+            </tr>
+          </table></td></tr>
+        </table></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+
+      <!--[if mso | IE]>
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;">
+    <![endif]--><div style=3D"background:#ffffff;background-color:#ffffff;m=
+argin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#f=
+fffff;background-color:#ffffff;width:100%;"><tbody><tr><td style=3D"directi=
+on:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top;"><!--[=
+if mso | IE]>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+    <![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=
+=3D"direction:ltr;display:inline-block;font-size:13px;text-align:left;verti=
+cal-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"paddin=
+g:0;padding-bottom:6px;padding-top:6px;vertical-align:top;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D""=
+ width=3D"100%">
+          <tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"color:#000000;font-family:Helvetica, Arial, sans-serif;font-size:13px;=
+line-height:22px;table-layout:auto;width:100%;" width=3D"100%">
+            <tr>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+              <th>
+                <div style=3D'color:#0E1318;font-family:"Open Sans", Helvet=
+ica, Arial, sans-serif;font-size:16px;line-height:1.6;text-align:left;'>
+                  <table cellpadding=3D"0" cellspacing=3D"0">
+                    <tr>
+                      <td style=3D"line-height: 0; padding-top: 6px; paddin=
+g-left: 8px; padding-right: 8px" valign=3D"top">
+                        <img alt=3D"bullet" src=3D"https://appboy-images.co=
+m/appboy/communication/assets/image_assets/images/5fa0bf1f01bc31513b9ece3d/=
+original.png?1604370207">
+                      </td>
+                      <td style=3D"padding: 0 8px;color:#0e1318;font-family=
+:Open Sans, Helvetica, Arial, sans serif;font-size:14px;font-weight:400;lin=
+e-height:160%;text-align:left;text-align:start;"><strong>Design anything wi=
+th ease:</strong> Start from scratch or customize thousands of premium, pro=
+fessionally-designed templates from presentations, to websites and social m=
+edia posts.</td>
+                    </tr>
+                  </table>
+                </div>
+              </th>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+            </tr>
+          </table></td></tr>
+        </table></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+
+      <!--[if mso | IE]>
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;">
+    <![endif]--><div style=3D"background:#fff;background-color:#fff;margin:=
+0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#fff;bac=
+kground-color:#fff;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-=
+size:0px;padding:0;text-align:center;vertical-align:top;"><!--[if mso | IE]=
+>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+    <![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=
+=3D"direction:ltr;display:inline-block;font-size:13px;text-align:left;verti=
+cal-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"paddin=
+g:0;padding-bottom:12px;padding-top:12px;vertical-align:top;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D""=
+ width=3D"100%">
+          <tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"color:#000000;font-family:Helvetica, Arial, sans-serif;font-size:13px;=
+line-height:22px;table-layout:auto;width:100%;" width=3D"100%">
+            <tr>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+              <th style=3D"color:#0e1318;font-family:Open Sans, Helvetica, =
+Arial, sans serif;font-size:14px;font-weight: 400;line-height:160%;text-ali=
+gn:left;text-align:start;">And there=E2=80=99s so much more. You=E2=80=99re=
+ only a few clicks away from getting started.</th>
+              <th class=3D"wrapper-margin" width=3D"48">&nbsp;</th>
+            </tr>
+          </table></td></tr>
+        </table></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+
+      <!--[if mso | IE]>
+    <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;fon=
+t-size:0px;mso-line-height-rule:exactly;">
+    <![endif]--><div style=3D"background:#ffffff;background-color:#ffffff;m=
+argin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#f=
+fffff;background-color:#ffffff;width:100%;"><tbody><tr><td style=3D"directi=
+on:ltr;font-size:0px;padding:0;padding-bottom:12px;padding-top:12px;text-al=
+ign:center;vertical-align:top;"><!--[if mso | IE]>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:600px;">
+    <![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=
+=3D"direction:ltr;display:inline-block;font-size:13px;text-align:left;verti=
+cal-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"paddin=
+g:0;vertical-align:top;"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"" width=3D"100%">
+          <tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-brea=
+k:break-word;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"color:#000000;font-family:Helvetica, Arial, sans-serif;font-size:13px;=
+line-height:22px;table-layout:auto;width:100%;" width=3D"100%">
+            <tr>
+              <th class=3D"wrapper-margin" width=3D"48px">&nbsp;</th>
+              <th style=3D"text-align: left; text-align: start">
+                <a href=3D"https://l.engage.canva.com/uni/ss/c/N56jrjxtajcl=
+rFz56qumlc85aUQxITzuynHJcgDmkPCo0LWucLT7zaARowcxvy8PtBjzguMgiMI2wECQ9H1BTle=
+6eSwdu8DZs3HUjLgAJNcOKPzQhnr64qmKBLgYVO1P0EmHHownfIRBG24d-PmLrNkruS5HC5ueyw=
+qrleB3G9nbTnuWz6ukMHUdy70meYiLmqVbiCmhA1Gw8ddf9-c3J16zKpxKdY9X7pfpKSr3sNfVf=
+lwy2h2ShGc3KnzwG4-7NqNmO7Tbiyb2Os-_mOQ5Lg/3vo/gfSqx0SASZCNbdPv3p-Pzw/h19/37=
+BQPDi3TJie8_7PSLRkju9V1_cMJbhEY3OESCKDNZk" universal=3D"true" target=3D"_bl=
+ank" style=3D"background:#7d2ae8;border-radius:4px;color:#ffffff;display:in=
+line-block;font-family:Open Sans, Helvetica, Arial, sans serif;font-size:14=
+px;font-weight:600;line-height:160%;margin:0;mso-padding-alt:0px;padding:9p=
+x 16px;text-decoration:none;text-transform:none;">Try Canva Pro for free</a=
+>
+              </th>
+              <th class=3D"wrapper-margin" width=3D"48px">&nbsp;</th>
+            </tr>
+            </table></td></tr>
+        </table></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+    </td></tr></table>
+    <![endif]-->
+
+      <!--
+
+
+
+   =20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+<!--[if mso | IE]>
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"width:600px;" width=3D"600"><tr><td style=3D"line-height:0px;font-si=
+ze:0px;mso-line-height-rule:exactly;">
+<![endif]--><div style=3D"margin:0px auto;max-width:600px;"><table align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:=
+0px;padding:0;text-align:center;vertical-align:top;"><!--[if mso | IE]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0"><tr><td style=3D"vertical-align:top;width:600px;">
+<![endif]--><div class=3D"dys-column-per-100 outlook-group-fix" style=3D"di=
+rection:ltr;display:inline-block;font-size:13px;text-align:left;vertical-al=
+ign:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"padding:0;ve=
+rtical-align:top;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" style=3D"" width=3D"100%">
+ <tr><td align=3D"left" style=3D"font-size:0px;padding:0;word-break:break-w=
+ord;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"colo=
+r:#000000;font-family:Helvetica, Arial, sans-serif;font-size:13px;line-heig=
+ht:22px;table-layout:auto;width:100%;" width=3D"100%">
+ <tr>
+ <td colspan=3D"3">
+ <table cellpadding=3D"0" cellspacing=3D"0" class=3D"border-radius-for-larg=
+e" style=3D"border-radius: 0 0 8px 8px; background: #ffffff; width: 100%">
+ <tr>
+ <td height=3D"36">&nbsp;</td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ <tr>
+ <td colspan=3D"3">
+ <div class=3D"footer-bg-mobile" style=3D"background-color: #edf0f2">
+ <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"color:#00=
+0000;font-family:Helvetica, Arial, sans-serif;font-size:13px;line-height:22=
+px;table-layout:auto;width:100%;" width=3D"100%">
+ <tr>
+ <td height=3D"24">&nbsp;</td>
+ </tr>
+ <tr>
+ <td width=3D"24">&nbsp;</td>
+ <td>
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;line-height:160%;text-align:center;">You are receiving=
+ this email because you signed up to Canva.</div>=20
+ </td>
+ <td width=3D"24">&nbsp;</td>
+ </tr>
+ <tr>
+ <td colspan=3D"3" height=3D"24" style=3D"border-bottom: 1px solid #DDE1E3"=
+>&nbsp;</td>
+ </tr>
+ <tr>
+ <td height=3D"24">&nbsp;</td>
+ </tr>
+ <tr>
+ <td colspan=3D"3">
+ <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" class=3D"mobil=
+e_hide" width=3D"auto">
+ <tr valign=3D"middle">
+ <td valign=3D"middle">
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;font-weight:400;line-height:160%;text-align:center;">G=
+et Canva for:</div>
+ </td>
+ <td style=3D"width: 10px;" width=3D"10px"></td>
+ <td valign=3D"middle">
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;font-weight:400;line-height:160%;text-align:center;">
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b=
+-EtCZIlInmZSBn0wmQQjugutk0KKNp21266W0gVJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTd=
+y92n93ANFWYRVVE5TkMjmGKzXXF9CE3KVBThH9_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4=
+q2YezD_9ir3ig28OKvj2pHKGRTJOcnnGrTUi4HdEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h20/eG8k96zd05AC5jb2e5NykCk2Xp8binu2QZDoViI3Ew8" style=3D"color: #2c=
+3135; font-family: Open Sans, Helvetica, Arial, sans serif; font-size: 14px=
+; font-weight: 400; line-height: 160%text-decoration:underline;"><span styl=
+e=3D"color:#2c3135;">iPhone</span></a>
+ </div>
+ </td>
+ <td style=3D"width: 10px;" width=3D"10px"></td>
+ <td style=3D"background-color: #e1e5e9; width: 1px;" width=3D"1px"></td>
+ <td style=3D"width: 10px;" width=3D"10px"></td>
+ <td valign=3D"middle">
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;font-weight:400;line-height:160%;text-align:center;">
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b=
+-EtCZIlInmZSBn0wmQQjugutk0KKNp21266W0gVJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTd=
+y92n93ANFWYRVVE5TkMjmGKzXXF9CE3KVBThH9_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4=
+q2YezD_9ir3ig28OKvj2pHKGRTJOcnnGrTUi4HdEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h21/JnkunczctHT6qSyeMUVZQ5TKxiGvql9CdPH5eKL-90w" style=3D"color: #2c=
+3135; font-family: Open Sans, Helvetica, Arial, sans serif; font-size: 14px=
+; font-weight: 400; line-height: 160%text-decoration:underline;"><span styl=
+e=3D"color:#2c3135;">iPad</span></a>
+ </div>
+ </td>
+ <td style=3D"width: 10px;" width=3D"10px"></td>
+ <td style=3D"background-color: #e1e5e9; width: 1px;" width=3D"1px"></td>
+ <td style=3D"width: 10px;" width=3D"10px"></td>
+ <td valign=3D"middle">
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;font-weight:400;line-height:160%;text-align:center;">
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b=
+-EtCZIlInmZSBn0wmQQjugutk0KKNp21266W0gVJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTd=
+y92n93ANFWYRVVE5TkMjmGKzXXF9CE3KVBThH9_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4=
+q2YezD_9ir3ig28OKvj2pHKGRTJOcnnGrTUi4HdEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h22/pJMOeVyrYxk3K1NTMqkBvqUtgWumswf3mB1XVnI_Oac" style=3D"color: #2c=
+3135; font-family: Open Sans, Helvetica, Arial, sans serif; font-size: 14px=
+; font-weight: 400; line-height: 160%text-decoration:underline;"><span styl=
+e=3D"color:#2c3135;">Android</span></a>
+ </div>
+ </td>
+ <td style=3D"width: 10px;" width=3D"10px"></td>
+ <td style=3D"background-color: #e1e5e9; width: 1px;" width=3D"1px"></td>
+ <td style=3D"width: 10px;" width=3D"10px"></td>
+ <td valign=3D"middle">
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;font-weight:400;line-height:160%;text-align:center;">
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b=
+-EtCZIlInmZSBn0wmQQjugutk0KKNp21266W0gVJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTd=
+y92n93ANFWYRVVE5TkMjmGKzXXF9CE3KVBThH9_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4=
+q2YezD_9ir3ig28OKvj2pHKGRTJOcnnGrTUi4HdEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h23/_aAXYkX68H0QVa1hFufxl4d9ibfKSN0wsNHkQ08GFho" style=3D"color: #2c=
+3135; font-family: Open Sans, Helvetica, Arial, sans serif; font-size: 14px=
+; font-weight: 400; line-height: 160%text-decoration:underline;"><span styl=
+e=3D"color:#2c3135;">Mac</span></a>
+ </div>
+ </td>
+ <td style=3D"width: 10px;" width=3D"10px"></td>
+ <td style=3D"background-color: #e1e5e9; width: 1px;" width=3D"1px"></td>
+ <td style=3D"width: 10px;" width=3D"10px"></td>
+ <td valign=3D"middle">
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;font-weight:400;line-height:160%;text-align:center;">
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b=
+-EtCZIlInmZSBn0wmQQjugutk0KKNp21266W0gVJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTd=
+y92n93ANFWYRVVE5TkMjmGKzXXF9CE3KVBThH9_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4=
+q2YezD_9ir3ig28OKvj2pHKGRTJOcnnGrTUi4HdEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h24/dfY0g0QVDODcpv5nr4vZPjcrMUJmA3hh2W5aLEC8HQ4" style=3D"color: #2c=
+3135; font-family: Open Sans, Helvetica, Arial, sans serif; font-size: 14px=
+; font-weight: 400; line-height: 160%; text-align: centertext-decoration:un=
+derline;"><span style=3D"color:#2c3135;">Windows</span></a>
+ </div>
+ </td>
+ </tr>
+ </table>
+ <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" class=3D"deskt=
+op_hide" width=3D"auto">
+ <tr>
+ <th>
+ <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+>
+ <tr>
+ <th style=3D"padding-bottom: 8px;">
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;font-weight:400;line-height:160%;text-align:center;">D=
+ownload the Canva app</div>
+ </th>
+ </tr>
+ </table>=20
+ <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"auto"=
+>
+ <tr>
+ <th>
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b=
+-EtCZIlInmZSBn0wmQQjugutk0KKNp21266W0gVJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTd=
+y92n93ANFWYRVVE5TkMjmGKzXXF9CE3KVBThH9_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4=
+q2YezD_9ir3ig28OKvj2pHKGRTJOcnnGrTUi4HdEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h25/WCcTZhEItBv37cPyW2NRI9yrcQbGW3wZzxrbr_ztgzc" style=3D"color: #2c=
+3135; font-family: Open Sans, Helvetica, Arial, sans serif; font-size: 14px=
+; font-weight: 400; line-height: 160%text-decoration:underline;"><span styl=
+e=3D"color:#2c3135;"><img alt=3D"app store" height=3D"38" src=3D"https://br=
+aze-images.com/appboy/communication/assets/image_assets/images/62de020f5e33=
+394d45222a2b/original.png?1658716687" style=3D"display: block; width: 129px=
+; height: 38px;" width=3D"129"></span></a>
+ </th>
+ <th width=3D"12px"></th>
+ <th>
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b=
+-EtCZIlInmZSBn0wmQQjugutk0KKNp21266W0gVJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTd=
+y92n93ANFWYRVVE5TkMjmGKzXXF9CE3KVBThH9_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4=
+q2YezD_9ir3ig28OKvj2pHKGRTJOcnnGrTUi4HdEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h26/q2cVlK6dSA_agMhQ4O1IV7csc9Nl7PIgaAFhLjnuFWI" style=3D"color: #2c=
+3135; font-family: Open Sans, Helvetica, Arial, sans serif; font-size: 14px=
+; font-weight: 400; line-height: 160%text-decoration:underline;"><span styl=
+e=3D"color:#2c3135;"><img alt=3D"google play" height=3D"38" src=3D"https://=
+braze-images.com/appboy/communication/assets/image_assets/images/62de020fef=
+2b102f48236331/original.png?1658716687" style=3D"display: block; width: 127=
+px; height: 38px;" width=3D"127"></span></a>=20
+ </th>
+ </tr>
+ </table>=20
+ </th>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ <tr>
+ <td colspan=3D"3" height=3D"24" style=3D"border-bottom: 1px solid #DDE1E3"=
+>&nbsp;</td>
+ </tr>
+ <tr>
+ <td height=3D"24">&nbsp;</td>
+ </tr>
+ <tr>
+ <td width=3D"24">&nbsp;</td>
+ <td>
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;line-height:160%;text-align:center;">
+=20
+
+<span>This advertisement is made for you with&nbsp;<img alt=3D'love' height=
+=3D'14' src=3D'https://braze-images.com/appboy/communication/assets/image_a=
+ssets/images/62dde73399539f763df89c34/original.png?1658709811' style=3D'tra=
+nsform: translateY(2px); width: 14px; height: 14px;' width=3D'14' />&nbsp;f=
+rom Canva</span> <br>
+ <span>Canva Pty Ltd</span>, <span>110 Kippax St, NSW 2010, Australia</span=
+>. <span>ABN 80 159 929 938</span><br>=20
+ <span>If you need assistance, get in touch with us via our <a href=3D'http=
+s://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlTv40ni-iHwPBz6lxuihmfCfkiA=
+7tyqN0tolHqeJuSgm/3vo/gfSqx0SASZCNbdPv3p-Pzw/h27/kOyxAzMJ4OsCNuCPtbhdJMg0c2=
+H6V73LDEB3p22_Yp8' style=3D'color: #565a5d;  font-family: Open Sans, Helvet=
+ica, Arial, sans serif; font-size: 14px; font-weight: 400; line-height: 160=
+%'>Help Center</a>.</span>
+ </div>
+ </td>
+ <td width=3D"24">&nbsp;</td>
+ </tr>
+ <tr>
+ <td colspan=3D"3" style=3D"padding-top: 4px;">
+ <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"auto"=
+>
+ <tr>
+ <td>
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;line-height:160%;text-align:center;">
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlQutsr5J_0b=
+-EtCZIlInmZSBn0wmQQjugutk0KKNp21266W0gVJp55cd5IMDYfR5REB3frD9DcDNBs2uaOLPTd=
+y92n93ANFWYRVVE5TkMjmGKzXXF9CE3KVBThH9_9duN0zj9_xWQnCxm_3aj0nzV5tGo_EH6xwn4=
+q2YezD_9ir3ig28OKvj2pHKGRTJOcnnGrTUi4HdEqPftHHQiTJx0g0/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h28/QMzJsKvx9_J6J-HmtPWONtfDMwV4FifzOncf589uZS8" style=3D"color: #51=
+5559; font-family: Open Sans, Helvetica, Arial, sans serif; font-size: 14px=
+; font-weight: 400; line-height: 160%text-decoration:underline;"><span styl=
+e=3D"color:#515559;">Visit canva.com</span></a>
+ </div>
+ </td>
+ <td style=3D"width: 16px;" width=3D"16px"></td>
+ <td>
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;line-height:160%;text-align:center;">
+ <a href=3D"https://l.engage.canva.com/ss/c/8aSaGI_6ZV4EiNXMMxdeJepGDl9EzYe=
+XYxG80-pEH-Txkm-I8v-LL8CTWohFqPCTvdmNxy1w46Dggl0WSJEJfR8nZL2r08dTJ12aGVG4UA=
+lYMIaGCZFP8vZz876fqNxnD4OPPwZkHyt60NwFB445S9lI8Ibv8zchjEc9-S-T-Gn9EjJa8BoPN=
+MOEbFyga3l8O2vhSk0tszmXBg17UoYhQvw2iCM2wzXWvufcLhqGqQ5soPtOQcVVT8z29CQZuGbF=
+aIv7mi8YOCmcld9IEL_E0WcFiehzgUL1Shu2UyVJXTGa-hjyb78egI3zSLramgTrptdYklK7m8J=
+aZIoPAeBjF661tRk1Hh_2qUE8Ouv5OGYZ54tKSlW58UH3hFlgHSVL8FRCgpXG1Xe2DsHOmxpZ59=
+I4l6E0dAzx-Num8keKZL1-OlI6gPHx9K9890k6khUIHMwhsOLWREyRx9VttUkYgpvq6rt_NC3pT=
+B9clfkWWzPL26Yr2JNa9quxp0mp28jcNP8Dos1SA5U65c4CTxiIzQF7EwOu_XI68TGNtyoNGWZI=
+30kmDBo6Y0AOyL8cYo7lWURC0XSrp9Oj3ZdZzVdOnLb2T6soU9VBbBTrBiuNUwItP9qOKnHXNPA=
+dRWaohlb4HgdKXnm1Kswp8Oi42IfdgFoISNv4gwTkafuDILG4QOmR1nss6_omEW2o-IXuw7Xoje=
+hHBViMJeoIGmcdgpRIgbpiibvFc35jxpuPphEEqxWW0tr8nidr1z5dwVg2xB08ckOB17yaHXcTD=
+mZncDt8o86w7BBQklJ_9CwpvgdVIIg_jO0MSVA0pZKHvs-99Ra_EcDGO18FWANaQi2_jpb1cE3q=
+MSoJFatdOtmy3xLZ_fIbQkH0pGzLOrhsO-OyhzoQ/3vo/gfSqx0SASZCNbdPv3p-Pzw/h29/TFr=
+EWn4ajYPuhAJIvPVLHAVfzsdoEiUwVJok_Gcn-us" style=3D"color: #515559; font-fam=
+ily: Open Sans, Helvetica, Arial, sans serif; font-size: 14px; font-weight:=
+ 400; line-height: 160%text-decoration:underline;"><span style=3D"color:#51=
+5559;">Unsubscribe</span></a>
+ </div>
+ </td>
+ </tr>
+ </table>
+ <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" width=3D"auto"=
+>
+ <tr>
+ <td>
+ <div style=3D"color:#515559;font-family:Open Sans, Helvetica, Arial, sans =
+serif;font-size:14px;line-height:160%;text-align:center;">
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlY206EG1CUU=
+-641gbt8bTpvIlZK6z73yMq8t0OK0ssTphnVPpVCdNE4GtggvZfmZ-L5cK_uENKJATOepl5QnKc=
+0teJp2BIcnxmd3IQElrnsM9Pl2yE3yOlx1wKCL87PnGOHi2H7aadi4PNur-pgDNDfeHOQ4nveyp=
+wvaM8Yxs2h3R7dqiTM8a_qGgMYOeMj1rMF3E-eGoWs3D3owrumD1g4qWJR23yXYuoehHtQiuBFA=
+WAhC8DuRju3qcxAyg34rHA/3vo/gfSqx0SASZCNbdPv3p-Pzw/h30/Tj-T95dOeUHQGDJeJQceD=
+yDiITMf0KqCG3g6YJPDWm0" style=3D"color: #565a5d; font-family: Open Sans, He=
+lvetica, Arial, sans serif; font-size: 14px; font-weight: 400; line-height:=
+ 160%; text-align: centertext-decoration:underline;"><span style=3D"color:#=
+565a5d;">Manage Email Preferences</span></a>
+ </div>
+ </td>
+ </tr>
+ </table>=20
+ </td>
+ </tr>
+ <tr>
+ <td height=3D"16"></td>
+ </tr>
+ <tr>
+ <td align=3D"center" colspan=3D"3">
+ <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"color:#00=
+0000;font-family:Helvetica, Arial, sans-serif;font-size:13px;line-height:22=
+px;table-layout:auto;width:144px;" width=3D"144">
+ <tr>
+ <td style=3D"width: 24px;" width=3D"24px">
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlX5OAtbCJMd=
+_FPvwEHJJ-8-3v730FYRdiZ7mt5hFjgNSF85wlY4T6lr1-UFhzF1J449DYsCmnR8mkx9fHHo08_=
+LnSZHnDDSpoHayQftEheUWjaExiuX4_egh7MPM07i2IqAO0L1QQVDP3Z911Kae2N9Rz3lk3fM-b=
+8nUVhzBO3RZUWhmcURABzsigpmAvRWhrtBKQw8EgPgx4wfCI5iiDs4/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h31/U5cTSoLZWUVkTHGcr0heCylHFWqq_8NAg1LOJ1wwa8g" style=3D"line-heigh=
+t: 0; display: blockcolor:#0E1318;text-decoration:underline;"><span style=
+=3D"text-decoration:underline;">
+ <img alt=3D"facebook" src=3D"https://braze-images.com/appboy/communication=
+/assets/image_assets/images/63290f406778851df7053add/original.png?166363526=
+4" style=3D"display: block; width: 24px; height: 24px;">
+ </span></a>
+ </td>
+ <td style=3D"width: 16px;" width=3D"16px"></td>
+ <td style=3D"width: 24px;" width=3D"24px">
+ <a href=3D"https://l.engage.canva.com/ss/c/mtWqLnqJK6aDQEpLGYS3ux9pLP57VNK=
+LjQ65NmZu_e4iijbSbAi9eW7qKtCtpW5SexzrlAJNlg5i_UDFzkfP6zYHnr30P_m8HrQ9IqcRPP=
+r3wgXodw7rjh-cO2C9tK-Hq9gdEuTjBddWOapPwWDQbTSAUMAXsvoGMe--Pn_VqUzqwvgND-zpa=
+LzeKG4bvFC_aLM-c-t2pVWCNV4LJ4Ca9s_L5b5tAkOgQdjyYoZgW2Mny-LuzJs16y2RzLmgBvCM=
+jyjmlIP-54b2HAfZ5uDK1u0LJTCYWgD5VIzOc7X4wVmKcmfrRMwT0otcDYYfKlTh/3vo/gfSqx0=
+SASZCNbdPv3p-Pzw/h32/d1piC3s45URW0h4W2uuaLxN6AhRirsxTgJpdHhGyxv4" style=3D"=
+line-height: 0; display: blockcolor:#0E1318;text-decoration:underline;"><sp=
+an style=3D"text-decoration:underline;">
+ <img alt=3D"twitter" src=3D"https://braze-images.com/appboy/communication/=
+assets/image_assets/images/63290f40eff12c1bdb3392b5/original.png?1663635264=
+" style=3D"display: block; width: 24px; height: 24px;">
+ </span></a>
+ </td>
+ <td style=3D"width: 16px;" width=3D"16px"></td>
+ <td style=3D"width: 24px;" width=3D"24px">
+ <a href=3D"https://l.engage.canva.com/ss/c/N56jrjxtajclrFz56qumlVxO83WZsjM=
+mrpdK0WEk-PyQSfAy1vN6PbMwxkCGncNvDiveK8vibpGqz8m6evhPllnlhTu5XEgkY3osVdHJDU=
+cdW7uf1DvJAIepICcnzoqTjgEc4tXkggZuSzvOslObNN8vPhXPo80yUkx9x_fVFK3RjD31unpaP=
+DvEX40H2TKFRVBjbCsiiFa7kpm35b9pFRKlUxeZKBg4v0bcZGN7e4Y/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h33/PS6eGyxIDAYpzpLOJj5Dgj8qCKtYTM6FsroB0FjWI_c" style=3D"line-heigh=
+t: 0; display: blockcolor:#0E1318;text-decoration:underline;"><span style=
+=3D"text-decoration:underline;">
+ <img alt=3D"pinterest" src=3D"https://braze-images.com/appboy/communicatio=
+n/assets/image_assets/images/63290f401415b134bbb2d71e/original.png?16636352=
+64" style=3D"display: block; width: 24px; height: 24px;">
+ </span></a>
+ </td>
+ <td style=3D"width: 16px;" width=3D"16px"></td>
+ <td style=3D"width: 24px;" width=3D"24px">
+ <a href=3D"https://l.engage.canva.com/ss/c/lZ-GM7rMZ041tTtfCkoTKRXxFZvYdct=
+phiqWkWaCzskovRsN_Uqf6KsvZWIxlXniRPAVc_NE5OMv-pbJjDbP267EehxBVU6xpuzHzrI1-W=
+_CaGURnLlVZhVaizrm3PuRJkfriIPXo48rpmKiUxt0tdadjySVEG-Hy7b_aXFhK7UPD_5E3odOO=
+lJ0Lfs0D3B0Eabg5W-EKxGcW9zy3oCbwpZsxkbi-FpHECkIIl_e-D4/3vo/gfSqx0SASZCNbdPv=
+3p-Pzw/h34/8_hjZmrNPlZV0eoe1KCChndhJHFz3eYGNkxDx6oxcHE" style=3D"line-heigh=
+t: 0; display: blockcolor:#0E1318;text-decoration:underline;"><span style=
+=3D"text-decoration:underline;">
+ <img alt=3D"instagram" src=3D"https://braze-images.com/appboy/communicatio=
+n/assets/image_assets/images/63290f41c162b77a6b2be55c/original.png?16636352=
+65" style=3D"display: block; width: 24px; height: 24px;">
+ </span></a>
+ </td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+ <tr>
+ <td height=3D"48px"></td>
+ </tr>
+ </table>
+ </div>
+ </td>
+ </tr>
+ </table></td></tr>
+ </table></td></tr></tbody></table></div><!--[if mso | IE]>
+</td></tr></table>
+<![endif]--></td></tr></tbody></table></div><!--[if mso | IE]>
+</td></tr></table>
+<![endif]-->
+    </div><img src=3D"https://l.engage.canva.com/ss/o/WidYBisxQHTw4AV5utnA-=
+Q/3vo/gfSqx0SASZCNbdPv3p-Pzw/ho.gif" alt=3D"" width=3D"1" height=3D"1" bord=
+er=3D"0" style=3D"height:1px !important;width:1px !important;border-width:0=
+ !important;margin-top:0 !important;margin-bottom:0 !important;margin-right=
+:0 !important;margin-left:0 !important;padding-top:0 !important;padding-bot=
+tom:0 !important;padding-right:0 !important;padding-left:0 !important;"/>
+</body> 
+</html>
